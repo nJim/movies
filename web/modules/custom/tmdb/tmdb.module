@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains tmdb.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function tmdb_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the tmdb module.
+    case 'help.page.tmdb':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Awesome Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
