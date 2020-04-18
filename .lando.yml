@@ -1,0 +1,4 @@
+name: movies
+recipe: drupal8
+config:
+  webroot: web
