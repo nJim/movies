@@ -18,7 +18,7 @@ class DebugController extends ControllerBase {
   public function contents() {
 
     $client = \Drupal::service('tmdb.api');
-    $things = $client->random();
+    $things = $client->getMovie();
     var_dump($things);
 
 
