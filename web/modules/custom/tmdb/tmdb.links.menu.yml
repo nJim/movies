@@ -1,0 +1,6 @@
+tmdb.config_form:
+  title: 'TMDB API'
+  route_name: tmdb.config_form
+  description: 'Setting for TMDB API.'
+  parent: system.admin_config_system
+  weight: 99

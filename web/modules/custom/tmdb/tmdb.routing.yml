@@ -1,0 +1,17 @@
+
+tmdb.debug_controller_hello:
+  path: '/tmdb/debug'
+  defaults:
+    _controller: '\Drupal\tmdb\Controller\DebugController::contents'
+    _title: 'TMDB API Debugger'
+  requirements:
+    _permission: 'access content'
+tmdb.config_form:
+  path: '/admin/config/tmdb/config'
+  defaults:
+    _form: '\Drupal\tmdb\Form\ConfigForm'
+    _title: 'ConfigForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE

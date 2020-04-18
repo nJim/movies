@@ -1,0 +1,12 @@
+services:
+  # Client to connect to TMDB API.
+  tmdb.client:
+    class: Drupal\tmdb\Client
+    arguments:
+      - '@http_client_factory'
+      - '@config.factory'
+  # Movie data interface.
+  tmdb.movie:
+    class: Drupal\tmdb\Movie
+    arguments:
+      - '@tmdb.client'
