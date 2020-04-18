@@ -1,0 +1,5 @@
+services:
+  tmdb.api:
+    class: Drupal\tmdb\Movie
+    arguments:
+      - '@http_client_factory'

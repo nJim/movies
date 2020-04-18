@@ -1,0 +1,8 @@
+
+tmdb.debug_controller_hello:
+  path: '/tmdb/debug'
+  defaults:
+    _controller: '\Drupal\tmdb\Controller\DebugController::contents'
+    _title: 'TMDB API Debugger'
+  requirements:
+    _permission: 'access content'

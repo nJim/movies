@@ -1,5 +1,5 @@
 name: 'tmdb'
 type: module
-description: 'My Awesome Module'
+description: 'TVDB Connector'
 core: 8.x
 package: 'Custom'
