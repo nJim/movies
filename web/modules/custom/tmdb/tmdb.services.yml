@@ -5,3 +5,8 @@ services:
     arguments:
       - '@http_client_factory'
       - '@config.factory'
+  # Movie data interface.
+  tmdb.movie:
+    class: Drupal\tmdb\Movie
+    arguments:
+      - '@tmdb.client'

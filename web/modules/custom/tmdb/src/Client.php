@@ -46,7 +46,7 @@ class Client {
    * @return object
    *   The JSON response decoded to an object.
    */
-  public function getMovie($id = '9607') {
+  public function getMovie($id) {
     $response = $this->get("movie/{$id}");
     return Json::decode($response->getBody());
   }
