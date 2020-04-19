@@ -1,0 +1,23 @@
+uuid: 3007c2fd-c12f-4850-a86b-4e99be96e971
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vote_average
+    - node.type.movie
+id: node.movie.field_vote_average
+field_name: field_vote_average
+entity_type: node
+bundle: movie
+label: 'Vote Average'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal
