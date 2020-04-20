@@ -1,0 +1,9 @@
+id: update_movie_action
+label: 'Update Movie'
+status: true
+langcode: en
+type: node
+plugin: update_movie_action
+dependencies:
+  module:
+  - node
