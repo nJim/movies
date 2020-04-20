@@ -13,7 +13,7 @@ _core:
 id: flix_main_menu
 theme: flix
 region: header
-weight: 0
+weight: -4
 provider: null
 plugin: 'system_menu_block:main'
 settings:
