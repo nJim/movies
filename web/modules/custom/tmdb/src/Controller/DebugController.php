@@ -18,27 +18,26 @@ class DebugController extends ControllerBase {
    */
   public function contents() {
 
+    $movie = \Drupal::service('tmdb.client')->fetchMovie('1885');
+    var_dump($movie);
 
-
-    $movies = \Drupal::service('tmdb.client')->getMoviesFromList();
-    foreach ($movies as $movie) {
-
-      $nodes = \Drupal::entityTypeManager()
-        ->getStorage('node')
-        ->loadByProperties(['field_tmdb_id' => $movie['id']]);
-      $node = reset($nodes);
-
-      if ($node->id()) {
-        $node->set('field_banner_path', $movie['backdrop_path']);
-        $node->set('field_poster_path', $movie['poster_path']);
+    // $movies = \Drupal::service('tmdb.client')->getMoviesFromList();
+    // foreach ($movies as $movie) {
+      // $nodes = \Drupal::entityTypeManager()
+      //   ->getStorage('node')
+      //   ->loadByProperties(['field_tmdb_id' => $movie['id']]);
+      // $node = reset($nodes);
+      // if ($node->id()) {
+        // $node->set('field_banner_path', $movie['backdrop_path']);
+        // $node->set('field_poster_path', $movie['poster_path']);
         // $node->set('field_release_date', $movie['release_date']);
         // $node->set('field_synopsis', array(
         //   'value' => $movie['overview'],
         //   'format' => 'basic_html',
         //   ));
-        $node->save();
-      }
-    }
+    //     $node->save();
+    //   }
+    // }
 
     return [
       '#type' => 'markup',
