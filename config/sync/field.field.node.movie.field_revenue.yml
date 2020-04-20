@@ -1,0 +1,23 @@
+uuid: 33d23699-a21c-4109-b119-47d0abdc1651
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_revenue
+    - node.type.movie
+id: node.movie.field_revenue
+field_name: field_revenue
+entity_type: node
+bundle: movie
+label: Revenue
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
