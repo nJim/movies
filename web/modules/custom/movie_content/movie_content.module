@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Contains movie_content.module.
+ */
+
+function movie_content_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+  /* List of all views that should use the movie-grid layout. */
+  $grids = ['movies_grid'];
+  if (in_array($variables['view']->id(), $grids)) {
+    $suggestions[] = sprintf('views_view__movie_grid', $variables['view']->id());
+  }
+}

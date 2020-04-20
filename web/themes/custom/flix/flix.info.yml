@@ -1,0 +1,11 @@
+name: Flix
+type: theme
+description: 'A simple theme for demoing the movie site.'
+core: 8.x
+libraries:
+  - flix/global-styling
+base theme: classy
+regions:
+  header: Header
+  content: Content
+  footer: Footer
