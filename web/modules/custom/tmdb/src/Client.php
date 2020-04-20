@@ -52,6 +52,20 @@ class Client {
   }
 
   /**
+   * Get the primary information about a collection of movies.
+   * 
+   * @param integer $id
+   *   The list id within tmdb.
+   * 
+   * @return object
+   *   The JSON response decoded to an object.
+   */
+  public function getList($id) {
+    $response = $this->get("list/{$id}");
+    return Json::decode($response->getBody());
+  }
+
+  /**
    * Request data from TMDB API.
    * 
    * @todo: Check response codes and add error handling.

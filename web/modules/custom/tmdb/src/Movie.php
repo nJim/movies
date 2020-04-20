@@ -14,11 +14,11 @@ class Movie {
   protected $client;
 
   /**
-   * The JSON response decoded to an object.
+   * A movie object decoded from TMDB responses.
    * 
    * @var Object
    */
-  protected $response;
+  protected $movie;
 
   /**
    * Constructor.
@@ -39,45 +39,61 @@ class Movie {
    * @return Movie
    *   This object.
    */
-  public function setMovieId($id = '9607') {
-    $this->response = $this->client->getMovie($id);
+  public function getMovieById($id) {
+    $this->movie = $this->client->getMovie($id);
+    return $this;
+  }
+
+  /**
+   * Get the primary information about a movie.
+   * 
+   * @param object $movie
+   *   The movie object returned from TMDB.
+   *
+   * @return Movie
+   *   This object.
+   */
+  public function loadMovie($movie) {
+    $this->movie = $movie;
     return $this;
   }
 
   public function getImdbId() {
-    return $this->response['imdb_id'];
+    return $this->movie['imdb_id'];
   }
 
   public function getOverview() {
-    return $this->response['overview'];
+    return $this->movie['overview'];
   }
 
+  // @todo.
   public function getPosterPath() {
-    return $this->response['poster_path'];
+    return $this->movie['poster_path'];
   }
 
   public function getReleaseDate() {
-    return $this->response['release_date'];
+    return $this->movie['release_date'];
   }
 
   public function getRevenue() {
-    return $this->response['revenue'];
+    return $this->movie['revenue'];
   }
 
+  // @todo.
   public function getRuntime() {
-    return $this->response['runtime'];
+    return $this->movie['runtime'];
   }
 
   public function getTagline() {
-    return $this->response['tagline'];
+    return $this->movie['tagline'];
   }
 
   public function getTitle() {
-    return $this->response['title'];
+    return $this->movie['title'];
   }
 
-  public function getAverageVote() {
-    return $this->response['vote_average'];
+  public function getVoteAverage() {
+    return $this->movie['vote_average'];
   }
 
 }
