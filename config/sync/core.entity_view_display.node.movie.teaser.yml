@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.movie.field_imdb_id
+    - field.field.node.movie.field_popularity
     - field.field.node.movie.field_release_date
     - field.field.node.movie.field_revenue
     - field.field.node.movie.field_synopsis
@@ -26,6 +27,7 @@ content:
     region: content
 hidden:
   field_imdb_id: true
+  field_popularity: true
   field_release_date: true
   field_revenue: true
   field_synopsis: true
