@@ -3,6 +3,7 @@
 namespace Drupal\tmdb\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use \Drupal\node\Entity\Node;
 
 /**
  * Class DebugController.
@@ -17,14 +18,31 @@ class DebugController extends ControllerBase {
    */
   public function contents() {
 
-    $movies = \Drupal::service('tmdb.list');
-    $movies->getListById();
-    var_dump(get_class_methods($movies->getMovies()));
+    $movies = \Drupal::service('tmdb.client')->getMoviesFromList();
+    foreach ($movies as $movie) {
+
+      $nodes = \Drupal::entityTypeManager()
+        ->getStorage('node')
+        ->loadByProperties(['field_tmdb_id' => $movie['id']]);
+      $node = reset($nodes);
+
+      if ($node->id()) {
+        $node->set('field_release_date', $movie['release_date']);
+        $node->set('field_synopsis', array(
+          'value' => $movie['overview'],
+          'format' => 'basic_html',
+          ));
+        $node->save();
+      }
+    }
 
 
     return [
       '#type' => 'markup',
-      '#markup' => $this->t('Lil help?')
+      '#markup' => $this->t('Lil help?'),
+      '#cache' => [
+        'max-age' => 0,
+      ],
     ];
   }
 

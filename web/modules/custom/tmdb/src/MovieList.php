@@ -39,12 +39,13 @@ class MovieList {
    * @return MovieList
    *   This object.
    */
-  public function getListById($id = '139830') {
-    $this->movies = $this->client->getList($id);
+  public function getList($id = '139830') {
+    $this->movies = $this->client->fetchList($id)['items'];
     return $this;
   }
 
   public function getMovies() {
+    $this->getList($id))
     return $this->movies;
   }
 

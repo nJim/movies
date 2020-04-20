@@ -23,6 +23,13 @@ class Client {
   protected $config;
 
   /**
+   * Guzzle response object.
+   *
+   * @var GuzzleHttp\Psr7\Response
+   */
+  protected $response;
+
+  /**
    * Constructor.
    *
    * @param $http_client_factory \Drupal\Core\Http\ClientFactory
@@ -32,13 +39,13 @@ class Client {
    */
   public function __construct(ClientFactory $http_client_factory, ConfigFactory $configFactory) {
     $this->client = $http_client_factory->fromOptions([
-      'base_uri' => 'https://api.themoviedb.org/3/',
+      'base_uri' => 'https://api.themoviedb.org/',
     ]);
     $this->config = $configFactory->get('tmdb.config');
   }
 
   /**
-   * Get the primary information about a movie.
+   * Fetch the primary information about a movie.
    * 
    * @param integer $id
    *   The movie id within tmdb.
@@ -46,13 +53,27 @@ class Client {
    * @return object
    *   The JSON response decoded to an object.
    */
-  public function getMovie($id) {
-    $response = $this->get("movie/{$id}");
-    return Json::decode($response->getBody());
+  public function fetchMovie($id) {
+    return $this->fetch("3/movie/{$id}");
   }
 
   /**
-   * Get the primary information about a collection of movies.
+   * Fetch the movies from a list.
+   * 
+   * @todo: Check that a non empty list is returned.
+   * 
+   * @param integer $id
+   *   The list id within tmdb.
+   * 
+   * @return array
+   *   An array of movie objects.
+   */
+  public function getMoviesFromList($id = '139830') {
+    return $this->fetchList($id)['items'];
+  }
+
+  /**
+   * Fetch the primary information about a collection of movies.
    * 
    * @param integer $id
    *   The list id within tmdb.
@@ -60,9 +81,8 @@ class Client {
    * @return object
    *   The JSON response decoded to an object.
    */
-  public function getList($id) {
-    $response = $this->get("list/{$id}");
-    return Json::decode($response->getBody());
+  protected function fetchList($id) {
+    return $this->fetch("3/list/{$id}");
   }
 
   /**
@@ -73,15 +93,16 @@ class Client {
    * @param string $endpoint
    *   The complete path of TMDB endpoint.
    * 
-   * @return GuzzleHttp\Psr7\Response
-   *   Response object.
+   * @return object
+   *   The JSON response decoded to an object.
    */
-  protected function get($endpoint) {
-    return $this->client->get($endpoint, [
+  protected function fetch($endpoint) {
+    $this->response = $this->client->get($endpoint, [
       'query' => [
         'api_key' => $this->config->get('tmdb_api_key'),
       ]
     ]);
+    return Json::decode($this->response->getBody());
   }
 
 }
