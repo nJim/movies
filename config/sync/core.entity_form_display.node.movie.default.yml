@@ -3,8 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.movie.field_banner_path
     - field.field.node.movie.field_imdb_id
     - field.field.node.movie.field_popularity
+    - field.field.node.movie.field_poster_path
     - field.field.node.movie.field_release_date
     - field.field.node.movie.field_revenue
     - field.field.node.movie.field_synopsis
@@ -27,6 +29,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_banner_path:
+    weight: 130
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_imdb_id:
     weight: 122
     settings:
@@ -41,6 +51,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_poster_path:
+    weight: 131
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_release_date:
     weight: 124

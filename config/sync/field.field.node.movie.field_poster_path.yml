@@ -1,0 +1,19 @@
+uuid: 697985d8-e5c3-4da5-83cb-f0343a06bf66
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_poster_path
+    - node.type.movie
+id: node.movie.field_poster_path
+field_name: field_poster_path
+entity_type: node
+bundle: movie
+label: 'Poster Path'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

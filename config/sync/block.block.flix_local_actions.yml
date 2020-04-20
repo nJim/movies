@@ -1,0 +1,20 @@
+uuid: c28e30e5-425a-4872-8674-635ec27d2989
+langcode: en
+status: true
+dependencies:
+  theme:
+    - flix
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: flix_local_actions
+theme: flix
+region: content
+weight: -20
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }
