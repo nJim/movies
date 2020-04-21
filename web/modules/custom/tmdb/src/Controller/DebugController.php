@@ -18,8 +18,25 @@ class DebugController extends ControllerBase {
    */
   public function contents() {
 
-    $movie = \Drupal::service('tmdb.client')->fetchMovie('1885');
-    var_dump($movie);
+    $movies = \Drupal::service('tmdb.client')->getMoviesFromList();
+    foreach ($movies as $movie) {
+      $data = \Drupal::service('tmdb.client')->fetchMovie($movie['id']);
+      if(isset($data["genres"])) {
+        foreach ($data["genres"] as $genre) {
+          $terms = \Drupal::entityTypeManager()
+            ->getStorage('taxonomy_term')
+            ->loadByProperties(['field_tmdb_id' => $genre['id']]);
+          if (!count($terms)) {
+            $entity = \Drupal\taxonomy\Entity\Term::create([
+              'name' => $genre['name'], 
+              'vid' => 'genre',
+            ]);
+            $entity->set('field_tmdb_id',   $genre['id']);
+            $entity->save();
+          }
+        }
+      }
+    }
 
     // $movies = \Drupal::service('tmdb.client')->getMoviesFromList();
     // foreach ($movies as $movie) {
@@ -35,7 +52,7 @@ class DebugController extends ControllerBase {
         //   'value' => $movie['overview'],
         //   'format' => 'basic_html',
         //   ));
-    //     $node->save();
+        // $node->save();
     //   }
     // }
 

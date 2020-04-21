@@ -2,6 +2,7 @@
 html {
   background: rgb(0, 0, 0);
   font-family: 'Karla', sans-serif;
+  color: rgb(255, 255, 255);
 }
 .region-content {
   background: rgb(35, 35,35);
@@ -35,7 +36,6 @@ html {
 /***************** Movie Node Teaser *****************/
 .movie-teaser {
   background: rgba(20, 20, 20);
-  color: rgb(255, 255, 255);
 }
 .movie-teaser__poster {
   width: 100%;

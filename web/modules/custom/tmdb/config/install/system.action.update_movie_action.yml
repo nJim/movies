@@ -1,5 +1,5 @@
 id: update_movie_action
-label: 'Update Movie'
+label: 'Update Movie Details'
 status: true
 langcode: en
 type: node

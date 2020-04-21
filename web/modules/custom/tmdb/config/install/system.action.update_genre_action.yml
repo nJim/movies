@@ -1,0 +1,9 @@
+id: update_genre_action
+label: 'Update Genre'
+status: true
+langcode: en
+type: node
+plugin: update_genre_action
+dependencies:
+  module:
+  - node

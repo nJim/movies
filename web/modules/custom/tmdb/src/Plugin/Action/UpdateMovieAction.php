@@ -7,11 +7,11 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
- * Action description.
+ * Fetches movie details from TMDB for any movie with a TMDB ID.
  *
  * @Action(
  *   id = "update_movie_action",
- *   label = @Translation("Update Movie"),
+ *   label = @Translation("Update Movie Details"),
  *   type = "node",
  *   requirements = {
  *     "_permission" = "edit any movie content",
