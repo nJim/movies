@@ -26,45 +26,19 @@ class UpdateGenreAction extends ActionBase {
    * {@inheritdoc}
    */
   public function execute($entity = NULL) {
-    $tmdbId = $entity->get('field_tmdb_id')->getString();
-    $data = \Drupal::service('tmdb.client')->fetchMovie($tmdbId);
-
+    // Fetch the movie details from TMDB API.
+    $data = $this->getMovieDetails($entity->get('field_tmdb_id')->getString());
+    
     if ($data['id'] && $data['genres']) {
       $terms_to_add = [];
       // A movie may belong to one or more genres.
       foreach ($data["genres"] as $genre) {
-        // Check if a taxonomy term already exists for this genre.
-        $terms = \Drupal::entityTypeManager()
-          ->getStorage('taxonomy_term')
-          ->loadByProperties(['field_tmdb_id' => $genre['id']]);
-        // Create a taxonomy term if one does not exist in drupal.
-        if (!count($terms)) {
-          $term = \Drupal\taxonomy\Entity\Term::create([
-            'name' => $genre['name'], 
-            'vid' => 'genre',
-          ]);
-          $term->set('field_tmdb_id',   $genre['id']);
-          $term->save();
-          // Save the new term id to add to the movie node.
-          $terms_to_add[] = $term->id();
-        }
-        else {
-          // The term alrady exists; save the term id to add to the movie node.
-          $first = reset($terms);
-          $terms_to_add[] = $first->id();
-        }
+        // Check if the genre is already associated with a term in drupal.
+        // Add the drupal taxonomy term to the array of terms for this movie.
+        $terms_to_add[] = $this->getGenreDrupalIdFromTmdbID($genre['id']);
       }
-
       // Set each of the genre terms on the movie's entity reference field.
-      foreach($terms_to_add as $index => $id) {
-        if($index == 0) {
-          $entity->set('field_genre', $id);
-        } else {
-          $entity->get('field_genre')->appendItem([
-            'target_id' => $id,
-          ]);
-        }
-      }
+      $entity->set('field_genre', $terms_to_add);
       $entity->save();
     }
 
@@ -77,6 +51,36 @@ class UpdateGenreAction extends ActionBase {
   public function access($object, AccountInterface $account = NULL, $return_as_object = FALSE) {
     /** @var \Drupal\Core\Entity\EntityInterface $object */
     return $object->access('update', $account, $return_as_object);
+  }
+
+  public function getMovieDetails($tmdbId) {
+    return \Drupal::service('tmdb.client')->fetchMovie($tmdbId);
+  }
+
+  public function getGenreDrupalIdFromTmdbID($tmdbId) {
+    // Check if a taxonomy term already exists with this genres TMDB ID.
+    $terms = $this->getTermsByTmdbId($tmdbId);
+    // Return the matching term so that it can be added to the movie node.
+    // Create a taxonomy term if one does not exist in drupal.
+    $term = count($terms)
+      ? reset($terms)
+      : $this->createGenre($genre['name'], $genre['id']);
+    return $term->id();
+  }
+
+  public function getTermsByTmdbId($tmdbId) {
+    return \Drupal::entityTypeManager()
+    ->getStorage('taxonomy_term')
+    ->loadByProperties(['field_tmdb_id' => $tmdbId]);
+  }
+
+  public function createGenre($name, $tmdbId) {
+    $term = \Drupal\taxonomy\Entity\Term::create([
+      'name' => $name, 
+      'vid' => 'genre',
+    ]);
+    $term->set('field_tmdb_id',   $tmdbId);
+    return $term->save();
   }
 
 }
