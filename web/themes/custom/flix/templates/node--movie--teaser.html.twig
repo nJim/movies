@@ -74,11 +74,14 @@
 {% set poster = 'https://image.tmdb.org/t/p/w300/' ~ node.field_poster_path.0.value %}
 {% set vote = node.field_vote_average.0.value %}
 
-
 <div class="movie-teaser">
   <a href="{{ url }}">
     <div class="movie-teaser__poster" style="background-image: url({{ poster }})"></div>
   </a>
-  <div class="movie-teaser__title" >{{ label }}</div>
-  <div class="movie-teaser__vote" >{{ vote }}</div>
+  <div class="movie-teaser__details">
+    <div class="movie-teaser__title" >{{ label }}</div>
+    <div class="movie-teaser__vote" >
+      <i class="fas fa-fire-alt"></i>{{ vote }}
+    </div>
+  </div>
 </div>

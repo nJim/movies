@@ -2,4 +2,7 @@ global-styling:
   version: 1.x
   css:
     theme:
+      '//fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Roboto:ital,wght@0,400;0,700;1,400': { type: external, minified: true }
       css/theme.css: {}
+  js:
+    //kit.fontawesome.com/5e5142ee24.js: { type: external, attributes: { crossorigin: anonymous } }

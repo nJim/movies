@@ -1,6 +1,7 @@
 /***************** Global *****************/
 html {
   background: rgb(0, 0, 0);
+  font-family: 'Karla', sans-serif;
 }
 .region-content {
   background: rgb(35, 35,35);
@@ -43,4 +44,7 @@ html {
   background-size: 100% auto;
   background-position: top center;
   background-repeat: no-repeat;
+}
+.movie-teaser__details {
+  padding: 6px;
 }
