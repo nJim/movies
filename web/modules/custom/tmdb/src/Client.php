@@ -86,6 +86,32 @@ class Client {
   }
 
   /**
+   * Fetch the cast credits for a movie.
+   * 
+   * @param integer $id
+   *   The movie id within tmdb.
+   * 
+   * @return array
+   *   An array of credit objects.
+   */
+  public function fetchMovieCastCredits($id) {
+    return $this->fetchMovieCredits($id)['cast'];
+  }
+
+  /**
+   * Fetch the credits for a movie.
+   * 
+   * @param integer $id
+   *   The movie id within tmdb.
+   * 
+   * @return array
+   *   An array of credit objects.
+   */
+  protected function fetchMovieCredits($id) {
+    return $this->fetch("3/movie/{$id}/credits");
+  }
+
+  /**
    * Request data from TMDB API.
    * 
    * @todo: Check response codes and add error handling.

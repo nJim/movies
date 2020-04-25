@@ -3,7 +3,7 @@
 namespace Drupal\tmdb\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use \Drupal\node\Entity\Node;
+use Drupal\node\Entity\Node;
 
 /**
  * Class DebugController.
@@ -18,25 +18,75 @@ class DebugController extends ControllerBase {
    */
   public function contents() {
 
-    $movies = \Drupal::service('tmdb.client')->getMoviesFromList();
-    foreach ($movies as $movie) {
-      $data = \Drupal::service('tmdb.client')->fetchMovie($movie['id']);
-      if(isset($data["genres"])) {
-        foreach ($data["genres"] as $genre) {
-          $terms = \Drupal::entityTypeManager()
-            ->getStorage('taxonomy_term')
-            ->loadByProperties(['field_tmdb_id' => $genre['id']]);
-          if (!count($terms)) {
-            $entity = \Drupal\taxonomy\Entity\Term::create([
-              'name' => $genre['name'], 
-              'vid' => 'genre',
+    $multiplier = 10;
+    $nids = \Drupal::entityQuery('node')->condition('type','movie')->execute();
+
+    foreach ($nids as $nid) { 
+      if (($nid >= $multiplier*50 + 0) && ($nid < $multiplier*50 + 50)) {
+        $credits_to_add = [];
+        $movie = Node::load($nid);
+        $tmdbId = $movie->get('field_tmdb_id')->getString();
+        $cast = \Drupal::service('tmdb.client')->fetchMovieCastCredits($tmdbId);
+        foreach ($cast as $member) {
+
+          $checkIfPerson = \Drupal::entityTypeManager()
+            ->getStorage('node')
+            ->loadByProperties(['field_tmdb_id' => $member['id']]);
+          if(!count($checkIfPerson)) {
+            $person = Node::create([
+              'type'        => 'person',
+              'title'       => !empty($member['name']) ? $member['name'] : 'Unlisted',
             ]);
-            $entity->set('field_tmdb_id',   $genre['id']);
-            $entity->save();
+            $person->set('field_tmdb_id', $member['id']);
+            $person->save();
           }
+          else {
+            $person = reset($checkIfPerson);
+          }
+
+
+          $checkIfCredit = \Drupal::entityTypeManager()
+            ->getStorage('node')
+            ->loadByProperties(['field_tmdb_credit_id' => $member['credit_id']]);
+          if(!count($checkIfCredit)) {
+            if(strlen($member['character']) >= 255) {
+              $character = substr($member['character'],0,254);
+            }
+            elseif(empty($member['character'])) {
+              $character = 'Unlisted';
+            }
+            else {
+              $character = $member['character'];
+            }
+            $credit = Node::create([
+              'type'        => 'credit',
+              'title'       => $character,
+            ]);
+            $credit->set('field_tmdb_credit_id', $member['credit_id']);
+            $credit->set('field_order', $member['order']);
+            $credit->set('field_person', $person->id());
+            $credit->save();
+          }
+          else {
+            $credit = reset($checkIfCredit);
+          }
+          $credits_to_add[] = $credit->id();
         }
+        $movie->set('field_credit', $credits_to_add);
+        $movie->save();
       }
     }
+
+
+
+
+
+
+
+
+    // $movies = \Drupal::service('tmdb.client')->getMoviesFromList();
+    // $data = \Drupal::service('tmdb.client')->fetchMovie($movie['id']);
+
 
     // $movies = \Drupal::service('tmdb.client')->getMoviesFromList();
     // foreach ($movies as $movie) {
