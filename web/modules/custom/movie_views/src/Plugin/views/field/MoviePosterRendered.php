@@ -17,7 +17,7 @@ use Drupal\views\ResultRow;
  *
  * @ingroup views_field_handlers
  *
- * @ViewsField("movie_poster_rendered")
+ * @ViewsField("movie_poster_rendered_field")
  */
 class MoviePosterRendered extends FieldPluginBase {
  
@@ -62,7 +62,7 @@ class MoviePosterRendered extends FieldPluginBase {
     return [
       '#theme' => 'image',
       '#uri' => "https://image.tmdb.org/t/p/w92{$path}",
-      '#alt' => $entity->title(),
+      '#alt' => $entity->getTitle(),
     ];
   }
 

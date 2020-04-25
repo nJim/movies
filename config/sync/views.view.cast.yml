@@ -96,6 +96,56 @@ display:
           hide_empty: false
           default_field_elements: true
       fields:
+        movie_poster_rendered_field:
+          id: movie_poster_rendered_field
+          table: node
+          field: movie_poster_rendered_field
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Poster
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          entity_type: node
+          plugin_id: movie_poster_rendered_field
         title:
           id: title
           table: node_field_data
@@ -143,57 +193,20 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        movie_poster_rendered:
-          id: movie_poster_rendered
-          table: node
-          field: movie_poster_rendered
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Poster
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          entity_type: node
-          plugin_id: movie_poster_rendered
       filters:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            movie: movie
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
         status:
           value: '1'
           table: node_field_data
@@ -207,18 +220,6 @@ display:
             operator_limit_selection: false
             operator_list: {  }
           group: 1
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            movie: movie
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
       sorts: {  }
       header: {  }
       footer: {  }
@@ -227,6 +228,10 @@ display:
       arguments: {  }
       display_extenders: {  }
       group_by: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
