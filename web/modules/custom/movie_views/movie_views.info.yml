@@ -1,0 +1,5 @@
+name: 'Movie Views'
+type: module
+description: 'Custom views for the Movie site.'
+core: 8.x
+package: 'Custom'
