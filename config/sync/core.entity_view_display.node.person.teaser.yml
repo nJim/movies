@@ -1,0 +1,32 @@
+uuid: 4b18fe80-37bf-4665-97b4-e1bc4ce7e220
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.person.field_biography
+    - field.field.node.person.field_birthday
+    - field.field.node.person.field_imdb_id
+    - field.field.node.person.field_popularity
+    - field.field.node.person.field_profile_path
+    - field.field.node.person.field_tmdb_id
+    - node.type.person
+  module:
+    - user
+id: node.person.teaser
+targetEntityType: node
+bundle: person
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_biography: true
+  field_birthday: true
+  field_imdb_id: true
+  field_popularity: true
+  field_profile_path: true
+  field_tmdb_id: true

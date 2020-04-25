@@ -1,0 +1,19 @@
+uuid: d4f38716-7cda-4215-ada7-25a61c4a998c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_path
+    - node.type.person
+id: node.person.field_profile_path
+field_name: field_profile_path
+entity_type: node
+bundle: person
+label: 'Profile Path'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

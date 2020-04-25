@@ -1,0 +1,20 @@
+uuid: 53f4dcea-e270-4541-ae12-112e2009840e
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_tmdb_id
+field_name: field_tmdb_id
+entity_type: taxonomy_term
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

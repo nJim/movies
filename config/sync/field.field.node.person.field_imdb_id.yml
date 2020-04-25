@@ -1,0 +1,19 @@
+uuid: 902fdb03-8b29-455a-ab9d-086111e6856a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_imdb_id
+    - node.type.person
+id: node.person.field_imdb_id
+field_name: field_imdb_id
+entity_type: node
+bundle: person
+label: 'IMDB ID'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

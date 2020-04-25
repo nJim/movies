@@ -1,0 +1,28 @@
+uuid: f90fa3ab-0acb-48ca-afb0-0de40032c1af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_credit
+    - node.type.credit
+    - node.type.movie
+id: node.movie.field_credit
+field_name: field_credit
+entity_type: node
+bundle: movie
+label: Credit
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      credit: credit
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

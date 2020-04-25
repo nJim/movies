@@ -1,0 +1,21 @@
+uuid: 3a9d02fe-0475-479a-bb70-3df467446a70
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_biography
+    - node.type.person
+  module:
+    - text
+id: node.person.field_biography
+field_name: field_biography
+entity_type: node
+bundle: person
+label: Biography
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

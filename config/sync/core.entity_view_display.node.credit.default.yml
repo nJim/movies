@@ -1,0 +1,47 @@
+uuid: f1e9f1ca-4f7c-4383-a662-80ecd207ba3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.credit.field_order
+    - field.field.node.credit.field_person
+    - field.field.node.credit.field_tmdb_credit_id
+    - node.type.credit
+  module:
+    - user
+id: node.credit.default
+targetEntityType: node
+bundle: credit
+mode: default
+content:
+  field_order:
+    weight: 102
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_person:
+    weight: 103
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_tmdb_credit_id:
+    weight: 104
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

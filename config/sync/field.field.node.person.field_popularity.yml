@@ -1,0 +1,23 @@
+uuid: e06737de-88ec-4cd3-91f9-221bb2b84018
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_popularity
+    - node.type.person
+id: node.person.field_popularity
+field_name: field_popularity
+entity_type: node
+bundle: person
+label: Popularity
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

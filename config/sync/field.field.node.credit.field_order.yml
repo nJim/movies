@@ -1,0 +1,23 @@
+uuid: ba2342eb-c004-4881-b29f-9a2177248d08
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_order
+    - node.type.credit
+id: node.credit.field_order
+field_name: field_order
+entity_type: node
+bundle: credit
+label: Order
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

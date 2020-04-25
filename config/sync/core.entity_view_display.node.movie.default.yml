@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.movie.field_banner_path
+    - field.field.node.movie.field_credit
+    - field.field.node.movie.field_genre
     - field.field.node.movie.field_imdb_id
     - field.field.node.movie.field_popularity
     - field.field.node.movie.field_poster_path
@@ -30,6 +32,22 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_credit:
+    weight: 113
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_genre:
+    weight: 112
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_imdb_id:
     weight: 102

@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.movie.field_banner_path
+    - field.field.node.movie.field_credit
+    - field.field.node.movie.field_genre
     - field.field.node.movie.field_imdb_id
     - field.field.node.movie.field_popularity
     - field.field.node.movie.field_poster_path
@@ -36,6 +38,26 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_credit:
+    weight: 133
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_genre:
+    weight: 132
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_imdb_id:
     weight: 122

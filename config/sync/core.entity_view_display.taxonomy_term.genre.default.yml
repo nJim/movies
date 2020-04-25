@@ -1,0 +1,31 @@
+uuid: 34ad7d82-618d-4c21-80fd-817d3fc3381b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.genre.field_tmdb_id
+    - taxonomy.vocabulary.genre
+  module:
+    - text
+id: taxonomy_term.genre.default
+targetEntityType: taxonomy_term
+bundle: genre
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tmdb_id:
+    weight: 1
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+hidden: {  }

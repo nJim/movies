@@ -1,0 +1,17 @@
+uuid: e5d49cb4-81e8-48d4-9622-71704cd023e2
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Credit
+type: credit
+description: 'A record of a person working on a movie.'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

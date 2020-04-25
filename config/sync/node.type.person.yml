@@ -1,0 +1,17 @@
+uuid: 96aec99b-d766-4669-9074-976aa9169608
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Person
+type: person
+description: 'An actor or other member of a production.'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

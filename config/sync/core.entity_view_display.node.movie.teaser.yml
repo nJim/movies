@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.movie.field_banner_path
+    - field.field.node.movie.field_credit
+    - field.field.node.movie.field_genre
     - field.field.node.movie.field_imdb_id
     - field.field.node.movie.field_popularity
     - field.field.node.movie.field_poster_path
@@ -32,6 +34,8 @@ content:
     third_party_settings: {  }
 hidden:
   field_banner_path: true
+  field_credit: true
+  field_genre: true
   field_imdb_id: true
   field_popularity: true
   field_release_date: true

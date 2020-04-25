@@ -1,0 +1,13 @@
+uuid: a3ce0c50-6116-4572-8b14-e7eb9bea5d6e
+langcode: en
+status: true
+dependencies:
+  module:
+    - tmdb
+_core:
+  default_config_hash: Gt2M12yv5GP_tz-2qm-Ak8wRtqVu7ouHSuMUOXu2SY4
+id: update_genre_action
+label: 'Update Genre'
+type: node
+plugin: update_genre_action
+configuration: {  }

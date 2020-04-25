@@ -1,0 +1,8 @@
+uuid: d5b0a8d1-5d6f-40dd-a070-baf622555384
+langcode: en
+status: true
+dependencies: {  }
+name: Genre
+vid: genre
+description: 'Used to organize movies into thematic groupings.'
+weight: 0

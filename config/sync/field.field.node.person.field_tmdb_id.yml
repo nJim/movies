@@ -1,0 +1,23 @@
+uuid: 4eda4b44-7af5-44d4-9b05-49c414dfff5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tmdb_id
+    - node.type.person
+id: node.person.field_tmdb_id
+field_name: field_tmdb_id
+entity_type: node
+bundle: person
+label: 'TMDB ID'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,26 @@
+uuid: 5cc69aaf-a1a3-4137-ab2a-04d8428b63b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.credit.field_order
+    - field.field.node.credit.field_person
+    - field.field.node.credit.field_tmdb_credit_id
+    - node.type.credit
+  module:
+    - user
+id: node.credit.teaser
+targetEntityType: node
+bundle: credit
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_order: true
+  field_person: true
+  field_tmdb_credit_id: true

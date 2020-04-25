@@ -1,13 +1,13 @@
-uuid: 3d3fcc67-f07b-4e67-b4f8-3dd1f0bc552c
+uuid: 43a6110d-e845-455a-aed4-35d407920cd8
 langcode: en
 status: true
 dependencies:
   module:
     - tmdb
 _core:
-  default_config_hash: Zq6Ho2hQ27hA0y6cNIuMrYxxgA0KXiaYBhl9AZCpFA0
+  default_config_hash: _Z6JBRXGFGH8wxwm1cnHxOx6oYTIj35vr7rO0v59a5o
 id: update_movie_action
-label: 'Update Movie'
+label: 'Update Movie Details'
 type: node
 plugin: update_movie_action
 configuration: {  }

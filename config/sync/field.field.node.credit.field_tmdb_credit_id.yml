@@ -1,0 +1,19 @@
+uuid: 54f62ebc-6695-4578-bf48-b6f8d4f8b6b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tmdb_credit_id
+    - node.type.credit
+id: node.credit.field_tmdb_credit_id
+field_name: field_tmdb_credit_id
+entity_type: node
+bundle: credit
+label: 'TMDB Credit ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
