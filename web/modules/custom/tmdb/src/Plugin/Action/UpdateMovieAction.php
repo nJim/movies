@@ -40,6 +40,8 @@ class UpdateMovieAction extends ActionBase {
       $entity->set('field_revenue',      $movie['revenue']);
       $entity->set('field_tagline',      $movie['tagline']);
       $entity->set('field_vote_average', $movie['vote_average']);
+      $entity->set('field_vote_count',   $movie['vote_count']);
+      $entity->set('field_budget',       $movie['budget']);
       $entity->set('field_synopsis', [
         'value' => $movie['overview'],
         'format' => 'basic_html',

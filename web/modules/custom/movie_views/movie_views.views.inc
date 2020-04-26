@@ -30,12 +30,23 @@ function movie_views_views_data_alter(array &$data) {
   ];
 
   // Field for displaying a teaser list of actors in a movie.
+  // @todo: give this options.
   $data['node']['movie_actors_shortlist_field'] = [
     'title' => t('Short List of Actors'),
     'field' => [
       'title' => t('Custom: Short List of Actors'),
       'help' => t('Displays short list of actors in a movie.'),
       'id' => 'movie_actors_shortlist_field',
+    ],
+  ];
+
+  // Field for comparing a movies budget and revenue.
+  $data['node']['movie_profit'] = [
+    'title' => t('Profit Calculation'),
+    'field' => [
+      'title' => t('Custom: Profit Calculation'),
+      'help' => t('Calculates movie revenue minus budget.'),
+      'id' => 'movie_profit',
     ],
   ];
 }

@@ -42,7 +42,6 @@ class MovieActorsName extends FieldPluginBase {
 
     $join = Views::pluginManager('join')->createInstance('standard', $configuration);
     $join_table_alias = $this->query->addRelationship('credit', $join, $baseTable);
-    // $this->query->addTable($query_base_table, 'aliasme', $join);
 
     $this->query->addField($join_table_alias, 'field_credit_target_id', 'whatever');
   }
