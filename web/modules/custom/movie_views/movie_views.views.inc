@@ -18,4 +18,24 @@ function movie_views_views_data_alter(array &$data) {
       'id' => 'movie_poster_rendered_field',
     ],
   ];
+
+  // Field for displaying the name of an actor in a given movie.
+  $data['node']['movie_actors_name_field'] = [
+    'title' => t('Actors in a Movie'),
+    'field' => [
+      'title' => t('Custom: Actors in a Movie'),
+      'help' => t('Displays actors in a movie.'),
+      'id' => 'movie_actors_name_field',
+    ],
+  ];
+
+  // Field for displaying a teaser list of actors in a movie.
+  $data['node']['movie_actors_shortlist_field'] = [
+    'title' => t('Short List of Actors'),
+    'field' => [
+      'title' => t('Custom: Short List of Actors'),
+      'help' => t('Displays short list of actors in a movie.'),
+      'id' => 'movie_actors_shortlist_field',
+    ],
+  ];
 }
