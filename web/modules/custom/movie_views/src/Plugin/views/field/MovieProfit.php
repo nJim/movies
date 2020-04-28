@@ -45,6 +45,7 @@ class MovieProfit extends FieldPluginBase {
    * @{inheritdoc}
    */
   public function query() {
+    
     /** @var \Drupal\views\Plugin\views\query\Sql $query */
     $query = $this->query;
     
@@ -63,17 +64,18 @@ class MovieProfit extends FieldPluginBase {
     // LEFT JOIN node__field_revenue ON node_field_data.nid=revenue.entity_id
     $budget_join = $joinManager->createInstance('movie_budget_join');
     $budget_alias = $query->addRelationship('budget', $budget_join, $base);
+    dpm($budget_alias);
 
     // Add the revenue and budget field values to the query.
     $query->addField($revenue_alias, 'field_revenue_value');
     $query->addField($budget_alias, 'field_budget_value');
 
     // Add where clause to remove movies without budget and revenue values.
-    $query->addWhere(0, 'revenue.field_revenue_value', 0, '!=');
-    $query->addWhere(0, 'budget.field_budget_value', 0, '!=');
+    $query->addWhere(0, $revenue_alias.'.field_revenue_value', 0, '!=');
+    $query->addWhere(0, $budget_alias.'.field_budget_value', 0, '!=');
 
     // Add the profit field to the view. This is calculated as revenue - budget.
-    $formula = '(revenue.field_revenue_value - budget.field_budget_value)';
+    $formula = "({$revenue_alias}.field_revenue_value  - {$budget_alias}.field_budget_value)";
     $query->addField(NULL, $formula, 'profit');
   }
  

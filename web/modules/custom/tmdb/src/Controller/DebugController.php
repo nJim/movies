@@ -18,9 +18,12 @@ class DebugController extends ControllerBase {
    */
   public function contents() {
 
-    $manager = \Drupal::service('plugin.manager.views.join');
-    dpm(\get_class_methods($manager));
-    dpm(createInstance)
+    $manager = \Drupal::service('plugin.manager.views.field');
+    // dpm(\get_class_methods($manager));
+    // dpm($manager->getDefinitions());
+    $p = $manager->createInstance('movie_profit');
+    // dpm(\get_class_methods($p));
+    // dpm($p->buildquery());
     // dpm($manager->getDefinition('movie_revenue_relationship'));
 
 
