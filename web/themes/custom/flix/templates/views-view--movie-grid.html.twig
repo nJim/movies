@@ -39,6 +39,9 @@
     dom_id ? 'js-view-dom-id-' ~ dom_id,
   ]
 %}
+
+{{ attach_library('flix/slick-slider') }}
+
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if title %}
@@ -62,7 +65,7 @@
   {% endif %}
 
   {% if rows %}
-    <div class="view-content movie-grid">
+    <div class="view-content movie-grid feature-slider">
       {{ rows }}
     </div>
   {% elseif empty %}

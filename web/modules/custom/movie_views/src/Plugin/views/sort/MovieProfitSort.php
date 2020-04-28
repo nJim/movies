@@ -42,7 +42,7 @@ class MovieProfitSort extends SortPluginBase {
     $joinManager = \Drupal::service('plugin.manager.views.join');
     $revenue_join = $joinManager->createInstance('movie_revenue_join');
     $revenue_alias = $query->addRelationship('revenue', $revenue_join, $base);
-    $budget_join = $joinManager->createInstance('movie_budget_join');
+    $budget_join = $joinManager->createInstance('movie_budget_join', []);
     $budget_alias = $query->addRelationship('budget', $budget_join, $base);
     $query->addField($revenue_alias, 'field_revenue_value');
     $query->addField($budget_alias, 'field_budget_value');

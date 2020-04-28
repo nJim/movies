@@ -6,3 +6,15 @@ global-styling:
       css/theme.css: {}
   js:
     //kit.fontawesome.com/5e5142ee24.js: { type: external, attributes: { crossorigin: anonymous } }
+
+slick-slider:
+  version: 1.x
+  css:
+    theme:
+      css/slick.css: {}
+      css/slick-theme.css: {}
+  js:
+    js/slick.js: {}
+    js/slickInit.js: {}
+  dependencies:
+    - core/jquery

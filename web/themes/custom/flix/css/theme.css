@@ -1,13 +1,20 @@
 /***************** Global *****************/
 html {
-  background: rgb(0, 0, 0);
+  background: rgb(35, 35,35);
   font-family: 'Karla', sans-serif;
   color: rgb(255, 255, 255);
 }
 .region-content {
-  background: rgb(35, 35,35);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+h1, h2, h3 {
+  font-family: 'Roboto', sans-serif;
+}
+h2 {
+  margin: 1.5rem 0.7rem .5rem 0.7rem;
+}
 
 /***************** Movie Grid Layout *****************/
 .movie-grid {
