@@ -5,27 +5,35 @@
  * Contains custom views support and definitions.
  */
 
- /**
+/**
  * Implements hook_views_data_alter().
  */
 function movie_views_views_data_alter(array &$data) {
+
+  // Example Field Plugin for Demo
+  $data['node_field_data']['example_field_plugin'] = [
+    'title' => t('Example Field Plugin'),
+    'field' => [
+      'help' => t('This is the help text.'),
+      'id' => 'example_field_plugin',
+    ],
+  ];
+
   // Field for rendering a movie poster as an image.
   $data['node_field_data']['movie_poster_rendered_field'] = [
     'title' => t('Movie Poster'),
     'field' => [
-      'title' => t('Custom: Movie Poster'),
       'help' => t('Rendered movie poster.'),
       'id' => 'movie_poster_rendered_field',
     ],
   ];
 
-  // Field for displaying the name of an actor in a given movie.
-  $data['node_field_data']['movie_actors_name_field'] = [
-    'title' => t('Actors in a Movie'),
+  // Field for rendering a movie poster as an image.
+  $data['node_field_data']['movie_mylist'] = [
+    'title' => t('My List'),
     'field' => [
-      'title' => t('Custom: Actors in a Movie'),
-      'help' => t('Displays actors in a movie.'),
-      'id' => 'movie_actors_name_field',
+      'help' => t('Add or remove from my list.'),
+      'id' => 'movie_my_list_field',
     ],
   ];
 
@@ -34,7 +42,6 @@ function movie_views_views_data_alter(array &$data) {
   $data['node_field_data']['movie_actors_shortlist_field'] = [
     'title' => t('Short List of Actors'),
     'field' => [
-      'title' => t('Custom: Short List of Actors'),
       'help' => t('Displays short list of actors in a movie.'),
       'id' => 'movie_actors_shortlist_field',
     ],

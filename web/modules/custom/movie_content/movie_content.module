@@ -5,6 +5,9 @@
  * Contains movie_content.module.
  */
 
+ /**
+ * Implements hook_theme_suggestions_views_view_alter().
+ */
 function movie_content_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
   // We will identify which views to alter based on their ids.
   $id = $variables['view']->id();
@@ -14,4 +17,18 @@ function movie_content_theme_suggestions_views_view_alter(array &$suggestions, a
   if (in_array($id, $grids) || (strpos($id, "feature_") === 0)) {
     $suggestions[] = sprintf('views_view__movie_grid', $variables['view']->id());
   }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function movie_content_theme($existing, $type, $theme, $path) {
+  return [
+    'button__mylisticon' => [
+      'variables' => [
+        'isAuthenticated' => NULL,
+        'isOnMyList' => NULL,
+      ],
+    ],
+  ];
 }
