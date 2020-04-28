@@ -1,5 +1,0 @@
-name: 'Movie Content'
-type: module
-description: 'Manage and alter the content and entity types.'
-core: 8.x
-package: 'Custom'

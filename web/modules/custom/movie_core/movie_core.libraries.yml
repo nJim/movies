@@ -1,0 +1,7 @@
+# Style overrides for the admin theme.
+admin:
+  css:
+    theme:
+      css/admin.css: {}
+  dependencies:
+    - flix/font-awesome

@@ -1,0 +1,7 @@
+{{ attach_library('movie_core/admin') }}
+
+{% if isAuthenticated and isOnMyList %}
+  <i class="mylist-icon far fa-grin-hearts"></i>
+{% else %}
+  <i class="mylist-icon fas fa-plus-circle"></i>
+{% endif %}

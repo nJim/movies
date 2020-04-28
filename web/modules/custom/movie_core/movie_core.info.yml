@@ -1,0 +1,5 @@
+name: 'Movie Core'
+type: module
+description: 'Suppoting code for the Movies demo site.'
+core: 8.x
+package: 'Custom'

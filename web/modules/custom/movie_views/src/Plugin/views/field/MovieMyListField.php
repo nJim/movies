@@ -81,7 +81,7 @@ class MovieMyListField extends FieldPluginBase {
    *   will be a string.
    */
   public function render(ResultRow $values) {
-    // Example of returning a custom template in a views field.
+    // Example of returning a custom template in a view.
     return [
       '#theme' => 'button__mylisticon',
       '#isAuthenticated' => $this->currentUser->isAuthenticated(),

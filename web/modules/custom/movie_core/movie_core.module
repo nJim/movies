@@ -2,13 +2,13 @@
 
 /**
  * @file
- * Contains movie_content.module.
+ * Contains movie_core.module.
  */
 
  /**
  * Implements hook_theme_suggestions_views_view_alter().
  */
-function movie_content_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+function movie_core_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
   // We will identify which views to alter based on their ids.
   $id = $variables['view']->id();
   // List of all views that should use the movie-grid layout.
@@ -22,7 +22,7 @@ function movie_content_theme_suggestions_views_view_alter(array &$suggestions, a
 /**
  * Implements hook_theme().
  */
-function movie_content_theme($existing, $type, $theme, $path) {
+function movie_core_theme($existing, $type, $theme, $path) {
   return [
     'button__mylisticon' => [
       'variables' => [

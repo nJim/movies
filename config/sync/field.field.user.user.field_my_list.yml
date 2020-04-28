@@ -1,0 +1,29 @@
+uuid: a75dace9-cf97-4a0c-aa1f-691f758726c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_my_list
+    - node.type.movie
+  module:
+    - user
+id: user.user.field_my_list
+field_name: field_my_list
+entity_type: user
+bundle: user
+label: 'My List'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      movie: movie
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
