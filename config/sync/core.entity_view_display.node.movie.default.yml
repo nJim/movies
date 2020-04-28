@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.movie.field_banner_path
+    - field.field.node.movie.field_budget
     - field.field.node.movie.field_credit
     - field.field.node.movie.field_genre
     - field.field.node.movie.field_imdb_id
@@ -15,6 +16,7 @@ dependencies:
     - field.field.node.movie.field_tagline
     - field.field.node.movie.field_tmdb_id
     - field.field.node.movie.field_vote_average
+    - field.field.node.movie.field_vote_count
     - node.type.movie
   module:
     - datetime
@@ -32,6 +34,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_budget:
+    weight: 114
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   field_credit:
     weight: 113
@@ -127,6 +138,15 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_decimal
+    region: content
+  field_vote_count:
+    weight: 115
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   links:
     weight: 100

@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.movie.field_banner_path
+    - field.field.node.movie.field_budget
     - field.field.node.movie.field_credit
     - field.field.node.movie.field_genre
     - field.field.node.movie.field_imdb_id
@@ -16,6 +17,7 @@ dependencies:
     - field.field.node.movie.field_tagline
     - field.field.node.movie.field_tmdb_id
     - field.field.node.movie.field_vote_average
+    - field.field.node.movie.field_vote_count
     - node.type.movie
   module:
     - user
@@ -34,6 +36,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_banner_path: true
+  field_budget: true
   field_credit: true
   field_genre: true
   field_imdb_id: true
@@ -44,4 +47,5 @@ hidden:
   field_tagline: true
   field_tmdb_id: true
   field_vote_average: true
+  field_vote_count: true
   links: true
