@@ -9,6 +9,32 @@ use Drupal\node\Entity\Node;
  * Class DebugController.
  */
 class DebugController extends ControllerBase {
+  public function getKeywordDrupalIdFromTmdbID($tmdbId, $keyword) {
+    // Check if a taxonomy term already exists with this keywords TMDB ID.
+    $terms = $this->getTermsByTmdbId($tmdbId);
+    // Return the matching term so that it can be added to the movie node.
+    // Create a taxonomy term if one does not exist in drupal.
+    $term = count($terms)
+      ? reset($terms)
+      : $this->createTerm($keyword['name'], $keyword['id']);
+    return $term->id();
+  }
+
+  public function getTermsByTmdbId($tmdbId) {
+    return \Drupal::entityTypeManager()
+    ->getStorage('taxonomy_term')
+    ->loadByProperties(['field_tmdb_id' => $tmdbId]);
+  }
+
+  public function createTerm($name, $tmdbId) {
+    $term = \Drupal\taxonomy\Entity\Term::create([
+      'name' => $name, 
+      'vid' => 'keywords',
+    ]);
+    $term->set('field_tmdb_id',   $tmdbId);
+    return $term->save();
+  }
+
 
   /**
    * Debugger page contents.
@@ -17,18 +43,25 @@ class DebugController extends ControllerBase {
    *   Return the debug page contents.
    */
   public function contents() {
-
-    $manager = \Drupal::service('plugin.manager.views.field');
-    // dpm(\get_class_methods($manager));
-    // dpm($manager->getDefinitions());
-    $p = $manager->createInstance('movie_profit');
-    // dpm(\get_class_methods($p));
-    // dpm($p->buildquery());
-    // dpm($manager->getDefinition('movie_revenue_relationship'));
-
-
-
-
+    $nid = '440';
+    $client = \Drupal::service('tmdb.client');
+    $data = $client->fetchMovieKeywords($nid);
+    
+    if ($data['id'] && $data['keywords']) {
+      $terms_to_add = [];
+      // A movie may belong to one or more keyword.
+      foreach ($data["keywords"] as $keyword) {
+        echo "<pre>";
+        var_dump($keyword);
+        echo "</pre>";
+        // Check if the keyword is already associated with a term in drupal.
+        // Add the drupal taxonomy term to the array of terms for this movie.
+        $terms_to_add[] = $this->getKeywordDrupalIdFromTmdbID($keyword['id'], $keyword);
+      }
+      // Set each of the keyword terms on the movie's entity reference field.
+      //$entity->set('field_keywords', $terms_to_add);
+      //$entity->save();
+    }
 
 
     // $multiplier = 10;

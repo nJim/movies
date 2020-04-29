@@ -1,0 +1,23 @@
+uuid: cb01eff9-af80-4678-a771-6791285d7844
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_tmdb_id
+    - taxonomy.vocabulary.keywords
+id: taxonomy_term.keywords.field_tmdb_id
+field_name: field_tmdb_id
+entity_type: taxonomy_term
+bundle: keywords
+label: 'TMDB ID'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

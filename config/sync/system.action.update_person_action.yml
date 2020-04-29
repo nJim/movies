@@ -1,0 +1,13 @@
+uuid: 28dbc8d8-848b-4378-939e-d712494f1adf
+langcode: en
+status: true
+dependencies:
+  module:
+    - tmdb
+_core:
+  default_config_hash: CFYIhqQLKvmQooi53dpuc-D7irH1UrWfhc04LgWW4Z8
+id: update_person_action
+label: 'Update Person Details'
+type: node
+plugin: update_person_action
+configuration: {  }

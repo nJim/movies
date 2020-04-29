@@ -58,6 +58,19 @@ class Client {
   }
 
   /**
+   * Fetch the keywords for a movie.
+   * 
+   * @param integer $id
+   *   The movie id within tmdb.
+   * 
+   * @return object
+   *   The JSON response decoded to an object.
+   */
+  public function fetchMovieKeywords($id) {
+    return $this->fetch("3/movie/{$id}/keywords");
+  }
+
+  /**
    * Fetch the movies from a list.
    * 
    * @todo: Check that a non empty list is returned.

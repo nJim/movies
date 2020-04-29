@@ -1,0 +1,9 @@
+id: update_person_action
+label: 'Update Person Details'
+status: true
+langcode: en
+type: node
+plugin: update_person_action
+dependencies:
+  module:
+  - node

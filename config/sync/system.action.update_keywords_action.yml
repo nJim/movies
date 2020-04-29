@@ -1,0 +1,13 @@
+uuid: c37043a4-474f-402e-9f67-f0a504965b6b
+langcode: en
+status: true
+dependencies:
+  module:
+    - tmdb
+_core:
+  default_config_hash: kdwrcIHk19CRF_RFtcH9qK2UL0jLVnkWzuyGyKfU9HU
+id: update_keywords_action
+label: 'Update Keywords'
+type: node
+plugin: update_keywords_action
+configuration: {  }

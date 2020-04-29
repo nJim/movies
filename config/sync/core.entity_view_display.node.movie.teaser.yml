@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.movie.field_credit
     - field.field.node.movie.field_genre
     - field.field.node.movie.field_imdb_id
+    - field.field.node.movie.field_keywords
     - field.field.node.movie.field_popularity
     - field.field.node.movie.field_poster_path
     - field.field.node.movie.field_release_date
@@ -40,6 +41,7 @@ hidden:
   field_credit: true
   field_genre: true
   field_imdb_id: true
+  field_keywords: true
   field_popularity: true
   field_release_date: true
   field_revenue: true

@@ -1,0 +1,9 @@
+id: update_keywords_action
+label: 'Update Keywords'
+status: true
+langcode: en
+type: node
+plugin: update_keywords_action
+dependencies:
+  module:
+  - node

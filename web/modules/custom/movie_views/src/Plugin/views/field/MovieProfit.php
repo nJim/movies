@@ -8,7 +8,6 @@ namespace Drupal\movie_views\Plugin\views\field;
  
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
-use Drupal\views\Views;
  
 /**
  * Returns a movie's profit as its revenue minus expenses.

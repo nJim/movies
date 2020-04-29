@@ -1,0 +1,31 @@
+uuid: 1b849aa0-d305-437a-b677-f3ea267c36c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.keywords.field_tmdb_id
+    - taxonomy.vocabulary.keywords
+  module:
+    - text
+id: taxonomy_term.keywords.default
+targetEntityType: taxonomy_term
+bundle: keywords
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tmdb_id:
+    weight: 1
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+hidden: {  }

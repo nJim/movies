@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.movie.field_credit
     - field.field.node.movie.field_genre
     - field.field.node.movie.field_imdb_id
+    - field.field.node.movie.field_keywords
     - field.field.node.movie.field_popularity
     - field.field.node.movie.field_poster_path
     - field.field.node.movie.field_release_date
@@ -75,6 +76,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_keywords:
+    weight: 136
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_popularity:
     weight: 129
