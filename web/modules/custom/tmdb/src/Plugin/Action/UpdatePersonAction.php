@@ -7,7 +7,7 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
- * .
+ * Update a person node with TMDB data.
  *
  * @Action(
  *   id = "update_person_action",
@@ -27,23 +27,17 @@ class UpdatePersonAction extends ActionBase {
    */
   public function execute($entity = NULL) {
     $tmdbId = $entity->get('field_tmdb_id')->getString();
-    $movie = \Drupal::service('tmdb.client')->fetchMovie($tmdbId);
+    $data = \Drupal::service('tmdb.client')->fetchPerson($tmdbId);
 
-    if ($movie['id']) {
-      $entity->set('title',              $movie['title']);
-      $entity->set('field_imdb_id',      $movie['id']);
-      $entity->set('field_banner_path',  $movie['backdrop_path']);
-      $entity->set('field_poster_path',  $movie['poster_path']);
-      $entity->set('field_release_date', $movie['release_date']);
-      $entity->set('field_imdb_id',      $movie['imdb_id']);
-      $entity->set('field_popularity',   $movie['popularity']);
-      $entity->set('field_revenue',      $movie['revenue']);
-      $entity->set('field_tagline',      $movie['tagline']);
-      $entity->set('field_vote_average', $movie['vote_average']);
-      $entity->set('field_vote_count',   $movie['vote_count']);
-      $entity->set('field_budget',       $movie['budget']);
-      $entity->set('field_synopsis', [
-        'value' => $movie['overview'],
+    if ($data['id']) {
+      $entity->set('title',              $data['name']);
+      $entity->set('field_birthday',     $data['birthday']);
+      $entity->set('field_imdb_id',      $data['imdb_id']);
+      $entity->set('field_popularity',   $data['popularity']);
+      $entity->set('field_profile_path', $data['profile_path']);
+      $entity->set('field_tmdb_id',      $data['id']);
+      $entity->set('field_biography', [
+        'value' => $data['biography'],
         'format' => 'basic_html',
       ]);
       $entity->save();

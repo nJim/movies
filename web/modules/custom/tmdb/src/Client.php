@@ -71,6 +71,19 @@ class Client {
   }
 
   /**
+   * Fetch a person details.
+   * 
+   * @param integer $id
+   *   The person id within tmdb.
+   * 
+   * @return object
+   *   The JSON response decoded to an object.
+   */
+  public function fetchPerson($id) {
+    return $this->fetch("3/person/{$id}");
+  }
+
+  /**
    * Fetch the movies from a list.
    * 
    * @todo: Check that a non empty list is returned.

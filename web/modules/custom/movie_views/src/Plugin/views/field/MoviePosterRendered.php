@@ -8,7 +8,6 @@
 namespace Drupal\movie_views\Plugin\views\field;
  
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\node\Entity\NodeType;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
  
@@ -20,6 +19,32 @@ use Drupal\views\ResultRow;
  * @ViewsField("movie_poster_rendered_field")
  */
 class MoviePosterRendered extends FieldPluginBase {
+  
+  /**
+   * {@inheritdoc}
+   */
+  protected function defineOptions() {
+    $options = parent::defineOptions();
+    $options['image_size'] = ['default' => 'w92'];
+    return $options;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
+    $form['image_size'] = [
+      '#title' => $this->t('Image Size'),
+      '#description' => $this->t("Specify the image size from TMDB."),
+      '#type' => 'select',
+      '#default_value' => $this->options['image_size'],
+      '#options' => [
+        'w92' => 'Thumbnail',
+        'w500' => 'Box'
+      ]
+    ];
+    parent::buildOptionsForm($form, $form_state);
+  }
  
   /**
    * @{inheritdoc}
@@ -54,6 +79,9 @@ class MoviePosterRendered extends FieldPluginBase {
       return NULL;
     }
 
+    // Get the image size from the field options setting.
+    $size = $this->options['image_size'];
+
     // Get the value from the poster path field.
     $path = $entity->get($field)->getString();
     
@@ -61,7 +89,7 @@ class MoviePosterRendered extends FieldPluginBase {
     // a string or any other markup is also possible.
     return [
       '#theme' => 'image',
-      '#uri' => "https://image.tmdb.org/t/p/w92{$path}",
+      '#uri' => "https://image.tmdb.org/t/p/{$size}{$path}",
       '#alt' => $entity->getTitle(),
     ];
   }
