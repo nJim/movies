@@ -38,7 +38,6 @@ function movie_views_views_data_alter(array &$data) {
   ];
 
   // Field for displaying a teaser list of actors in a movie.
-  // @todo: give this options.
   $data['node_field_data']['movie_actors_shortlist_field'] = [
     'title' => t('Short List of Actors'),
     'field' => [
@@ -57,6 +56,24 @@ function movie_views_views_data_alter(array &$data) {
     'sort' => [
       'help' => t('Sort by movie profits.'),
       'id' => 'movie_profit',
+    ],
+  ];
+
+  // Example Filter Plugin for Demo
+  $data['node_field_data']['example_filter_plugin'] = [
+    'title' => t('Example Filter Plugin'),
+    'filter' => [
+      'help' => t('Lets make a filter.'),
+      'id' => 'example_filter_plugin',
+    ],
+  ];
+
+  // Filter for movies with excited titles
+  $data['node_field_data']['movie_excited_filter'] = [
+    'title' => t('Excited Title'),
+    'filter' => [
+      'help' => t('Movies with an exclamation mark in title.'),
+      'id' => 'movie_excited_filter',
     ],
   ];
 
