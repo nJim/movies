@@ -7,14 +7,11 @@
  
 namespace Drupal\movie_views\Plugin\views\field;
  
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\node\Entity\NodeType;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
-use Drupal\views\Views;
  
 /**
- * Returns actors in a given movie.
+ * A blank views field plugin.
  *
  * @ingroup views_field_handlers
  *
@@ -39,7 +36,7 @@ class ExampleFieldPlugin extends FieldPluginBase {
    *   will be a string.
    */
   public function render(ResultRow $values) {
-    return 'Example message';
+    return 'Example message'; // not part of query. happen for each row. not sortable.
   }
 
 }

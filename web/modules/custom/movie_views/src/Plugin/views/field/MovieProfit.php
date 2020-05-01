@@ -63,7 +63,6 @@ class MovieProfit extends FieldPluginBase {
     // LEFT JOIN node__field_revenue ON node_field_data.nid=revenue.entity_id
     $budget_join = $joinManager->createInstance('movie_budget_join');
     $budget_alias = $query->addRelationship('budget', $budget_join, $base);
-    dpm($budget_alias);
 
     // Add the revenue and budget field values to the query.
     $query->addField($revenue_alias, 'field_revenue_value');
