@@ -46,6 +46,15 @@ function movie_views_views_data_alter(array &$data) {
     ],
   ];
 
+  // Example Sort Plugin for Demo
+  $data['node_field_data']['example_sort_plugin'] = [
+    'title' => t('Example Sort Plugin'),
+    'sort' => [
+      'help' => t('Lets make a sort.'),
+      'id' => 'example_sort_plugin',
+    ],
+  ];
+
   // Field for comparing a movies budget and revenue.
   $data['node_field_data']['movie_profit'] = [
     'title' => t('Custom: Profit Calculation'),

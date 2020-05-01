@@ -82,7 +82,8 @@ class MovieProfit extends FieldPluginBase {
    */
   public function render(ResultRow $values) {
     // Return the custom field value.
-    return $values->profit;
+    // Prefixing the dollar sign, but we could make this a plugin $option.
+    return '$'. number_format($values->profit, 0, '.', ',');
   }
 
 }
