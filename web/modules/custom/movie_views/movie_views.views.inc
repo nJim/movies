@@ -10,7 +10,16 @@
  */
 function movie_views_views_data_alter(array &$data) {
 
-  // Example Field Plugin for Demo
+  // Field Plugin for Demo
+  $data['node_field_data']['demo_field_plugin'] = [
+    'title' => t('Demo Field Plugin'),
+    'field' => [
+      'help' => t('A field plugin for live demo.'),
+      'id' => 'demo_field_plugin',
+    ],
+  ];
+
+  // Example Field Plugin
   $data['node_field_data']['example_field_plugin'] = [
     'title' => t('Example Field Plugin'),
     'field' => [
@@ -95,7 +104,7 @@ function movie_views_views_data_alter(array &$data) {
     'help' => t('Find revenue values related to an entity.'),
     'relationship' => [
       'id' => 'movie_revenue_relationship',
-    ],  
+    ],
   ];
 
   // Creates a relationship between the base table and the budget field values.
@@ -111,8 +120,8 @@ function movie_views_views_data_alter(array &$data) {
       'base' => 'node__field_budget',
       'base field' => 'entity_id',
       'relationship field' => 'nid',
-      'id' => 'standard',      
-    ],  
+      'id' => 'standard',
+    ],
   ];
 
 }
