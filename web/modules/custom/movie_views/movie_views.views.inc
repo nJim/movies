@@ -55,7 +55,7 @@ function movie_views_views_data_alter(array &$data) {
     ],
   ];
 
-  // Example Sort Plugin for Demo
+  // Example Sort Plugin for Demo.
   $data['node_field_data']['example_sort_plugin'] = [
     'title' => t('Example Sort Plugin'),
     'sort' => [
@@ -63,6 +63,18 @@ function movie_views_views_data_alter(array &$data) {
       'id' => 'example_sort_plugin',
     ],
   ];
+
+  // Sort by word count in title field.
+  $data['node_field_data']['word_count_sort'] = [
+    'title' => t('Word Count'),
+    'sort' => [
+      'help' => t('Sort by word count of title.'),
+      'id' => 'word_count_sort',
+    ],
+  ];
+
+  // Sort on word count.
+
 
   // Field for comparing a movies budget and revenue.
   $data['node_field_data']['movie_profit'] = [
