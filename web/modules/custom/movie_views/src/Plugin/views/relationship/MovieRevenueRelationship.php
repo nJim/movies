@@ -6,17 +6,15 @@
 
 namespace Drupal\movie_views\Plugin\views\relationship;
 
-use Drupal\views\ViewExecutable;
-use Drupal\views\Plugin\views\display\DisplayPluginBase;
 use Drupal\views\Plugin\views\relationship\RelationshipPluginBase;
 use Drupal\views\Views;
 
 /**
  * Custom views plugin for relating revenue field data to an entity.
- * 
+ *
  * Note: This example is unnecessary as the views module automatically creates
  * relationships for fields created with the Field API. This code is here to
- * show how a join plugin may be used to define a relationship. 
+ * show how a join plugin may be used to define a relationship.
  *
  * @ingroup views_relationship_handlers
  *

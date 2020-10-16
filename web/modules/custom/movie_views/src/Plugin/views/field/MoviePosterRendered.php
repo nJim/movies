@@ -1,16 +1,16 @@
 <?php
- 
+
 /**
  * @file
  * Definition of Drupal\movie_views\Plugin\views\field\MoviePosterRendered
  */
- 
+
 namespace Drupal\movie_views\Plugin\views\field;
- 
+
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
- 
+
 /**
  * Renders a movie poster as a views field.
  *
@@ -19,7 +19,7 @@ use Drupal\views\ResultRow;
  * @ViewsField("movie_poster_rendered_field")
  */
 class MoviePosterRendered extends FieldPluginBase {
-  
+
   /**
    * {@inheritdoc}
    */
@@ -45,7 +45,7 @@ class MoviePosterRendered extends FieldPluginBase {
     ];
     parent::buildOptionsForm($form, $form_state);
   }
- 
+
   /**
    * @{inheritdoc}
    */
@@ -53,7 +53,7 @@ class MoviePosterRendered extends FieldPluginBase {
     // The query method is required as plugins implement ViewsPluginInterface.
     // We don't need to alter the query, so leave an empty method.
   }
- 
+
   /**
    * Renders the field.
    *
@@ -68,7 +68,7 @@ class MoviePosterRendered extends FieldPluginBase {
   public function render(ResultRow $values) {
     // This views plugin uses the poster path to create a rendered image.
     $field = 'field_poster_path';
-    
+
     // This view is built on the node base table, so we are given access to the
     // entire node object in the render method.
     $entity = $values->_entity;
@@ -84,7 +84,7 @@ class MoviePosterRendered extends FieldPluginBase {
 
     // Get the value from the poster path field.
     $path = $entity->get($field)->getString();
-    
+
     // Return a renderable element. In this case we are returning an image, but
     // a string or any other markup is also possible.
     return [

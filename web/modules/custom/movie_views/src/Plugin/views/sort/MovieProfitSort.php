@@ -41,7 +41,7 @@ class MovieProfitSort extends SortPluginBase {
     // The views join manager allows us to instantiate our @ViewsJoin plugins.
     $joinManager = \Drupal::service('plugin.manager.views.join');
 
-    // Join the base table onto the revenu field data table. 
+    // Join the base table onto the revenu field data table.
     // LEFT JOIN node__field_budget ON node_field_data.nid=budget.entity_id
     $revenue_config = [
       'type' => 'INNER',
@@ -54,7 +54,7 @@ class MovieProfitSort extends SortPluginBase {
     $revenue_join = $joinManager->createInstance('standard', $revenue_config);
     $revenue_alias = $query->addRelationship('revenue_join', $revenue_join, $base);
 
-    // Join the base table onto the revenu field data table. 
+    // Join the base table onto the revenu field data table.
     // LEFT JOIN node__field_revenue ON node_field_data.nid=revenue.entity_id
     $budget_config = [
       'type' => 'INNER',

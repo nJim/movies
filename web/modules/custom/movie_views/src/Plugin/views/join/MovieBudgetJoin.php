@@ -11,7 +11,7 @@ use Drupal\views\Plugin\views\join\JoinPluginInterface;
 
 /**
  * Views plugin for joining the budget field data table to the node base table.
- * 
+ *
  * Note: This code is unnecessary as the views module creates relationships for
  * each field created with the Field API. This is here as an example of a join
  * handler. This pattern is more useful for joining to custom entities.

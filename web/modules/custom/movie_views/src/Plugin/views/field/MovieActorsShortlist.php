@@ -1,15 +1,15 @@
 <?php
- 
+
 /**
  * @file
  * Definition of Drupal\movie_views\Plugin\views\field\MovieActorsShortlist
  */
- 
+
 namespace Drupal\movie_views\Plugin\views\field;
- 
+
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
- 
+
 /**
  * Returns a short list of actors in a given movie.
  *
@@ -18,7 +18,7 @@ use Drupal\views\ResultRow;
  * @ViewsField("movie_actors_shortlist_field")
  */
 class MovieActorsShortlist extends FieldPluginBase {
- 
+
   /**
    * @{inheritdoc}
    */
@@ -30,7 +30,7 @@ class MovieActorsShortlist extends FieldPluginBase {
     // actors and aggregates the results; but we would quickly find ourselves
     // in subquery hell. So let's keep the code easier on the eyes below.
   }
- 
+
   /**
    * Renders the field.
    *
@@ -45,7 +45,7 @@ class MovieActorsShortlist extends FieldPluginBase {
   public function render(ResultRow $values) {
     // The credits field relates a movie to credit nodes.
     $field = 'field_credit';
-    
+
     // This view is built on the node base table, so we are given access to the
     // entire node object in the render method.
     $entity = $values->_entity;
@@ -56,7 +56,7 @@ class MovieActorsShortlist extends FieldPluginBase {
       return NULL;
     }
 
-    // Load the credit nodes related to this movie. 
+    // Load the credit nodes related to this movie.
     $credits = $entity->get('field_credit')->referencedEntities();
 
     // The top three actors will be included in the shortlist by name.

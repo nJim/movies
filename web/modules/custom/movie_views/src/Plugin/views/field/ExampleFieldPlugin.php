@@ -1,15 +1,15 @@
 <?php
- 
+
 /**
  * @file
  * Definition of Drupal\movie_views\Plugin\views\field\ExampleFieldPlugin
  */
- 
+
 namespace Drupal\movie_views\Plugin\views\field;
- 
+
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
- 
+
 /**
  * A blank views field plugin.
  *
@@ -18,12 +18,12 @@ use Drupal\views\ResultRow;
  * @ViewsField("example_field_plugin")
  */
 class ExampleFieldPlugin extends FieldPluginBase {
- 
+
   public function query() {
     // The query method is required as plugins implement ViewsPluginInterface.
     // We are choosing to work in the render method, so leave this empty.
   }
- 
+
   /**
    * Renders the field.
    *

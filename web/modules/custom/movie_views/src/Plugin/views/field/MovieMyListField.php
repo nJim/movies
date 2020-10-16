@@ -1,17 +1,17 @@
 <?php
- 
+
 /**
  * @file
  * Definition of Drupal\movie_views\Plugin\views\field\MovieMyListField
  */
- 
+
 namespace Drupal\movie_views\Plugin\views\field;
 
 use Drupal\Core\Database\Database;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
 use Drupal\views\Views;
- 
+
 /**
  * Returns an icon to view if a movie is on the the current user's list.
  *
@@ -23,7 +23,7 @@ class MovieMyListField extends FieldPluginBase {
 
   /**
    * The current user object.
-   * 
+   *
    * @var \Drupal\Core\Session\AccountProxy
    */
   protected $currentUser;
@@ -35,14 +35,14 @@ class MovieMyListField extends FieldPluginBase {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->currentUser = \Drupal::currentUser();
   }
- 
+
   /**
    * @{inheritdoc}
    */
   public function query() {
     // Create a subquery to get a list of all movies on the user's my-list.
-    // SELECT field_my_list_target_id, 1 as on_list 
-    // FROM user__field_my_list 
+    // SELECT field_my_list_target_id, 1 as on_list
+    // FROM user__field_my_list
     // WHERE entity_id = 1
     $subquery = Database::getConnection()->select('user__field_my_list', 'u');
     $subquery->addExpression("u.field_my_list_target_id", 'movie_id');
@@ -68,7 +68,7 @@ class MovieMyListField extends FieldPluginBase {
     // The the 'on_list' field to the views result row object.
     $this->query->addField('user_data', 'on_list', 'on_list');
   }
- 
+
   /**
    * Renders the field.
    *

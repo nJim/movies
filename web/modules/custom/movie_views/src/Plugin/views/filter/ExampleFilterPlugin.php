@@ -1,5 +1,5 @@
 <?php
- 
+
 /**
  * @file
  * Definition of Drupal\movie_views\Plugin\views\filter\ExampleFilterPlugin.
