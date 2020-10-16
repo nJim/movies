@@ -26,4 +26,4 @@
 # Keep away
 *.sql
 *.sql.gz
-
+!/database/*.sql.gz
