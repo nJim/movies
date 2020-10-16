@@ -65,8 +65,12 @@ function movie_views_views_data_alter(array &$data) {
   ];
 
   // Sort by word count in title field.
-  $data['node_field_data']['word_count_sort'] = [
+  $data['node_field_data']['word_count'] = [
     'title' => t('Word Count'),
+    'field' => [
+      'help' => t('Displays the number of words in the title field.'),
+      'id' => 'word_count_field',
+    ],
     'sort' => [
       'help' => t('Sort by word count of title.'),
       'id' => 'word_count_sort',
